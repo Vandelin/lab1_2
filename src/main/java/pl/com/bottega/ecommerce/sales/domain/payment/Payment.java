@@ -30,6 +30,10 @@ public class Payment {
         this.amount = amount;
     }
 
+    public static Payment createPayment(Id aggregateId, ClientData clientData, Money amount){
+        return new Payment(aggregateId, clientData, amount);
+    }
+
     public Payment rollBack() {
         Id id = Id.generate();
 

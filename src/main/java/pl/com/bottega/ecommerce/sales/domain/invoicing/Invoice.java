@@ -32,7 +32,7 @@ public class Invoice {
 
     private Id id;
 
-    Invoice(Id invoiceId, ClientData client) {
+    private Invoice(Id invoiceId, ClientData client) {
         this.id = invoiceId;
         this.client = client;
         this.items = new ArrayList<>();
@@ -41,11 +41,15 @@ public class Invoice {
         this.gros = Money.ZERO;
     }
 
-    public void addItem(InvoiceLine item) {
+    void addItem(InvoiceLine item) {
         items.add(item);
 
         net = net.add(item.getNet());
         gros = gros.add(item.getGros());
+    }
+
+    static Invoice createInvoice(Id invoiceId, ClientData client){
+        return new Invoice(invoiceId, client);
     }
 
     /**
