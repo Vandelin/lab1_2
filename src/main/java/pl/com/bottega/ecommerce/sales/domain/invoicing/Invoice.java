@@ -12,13 +12,13 @@
  */
 package pl.com.bottega.ecommerce.sales.domain.invoicing;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.ClientData;
 import pl.com.bottega.ecommerce.canonicalmodel.publishedlanguage.Id;
 import pl.com.bottega.ecommerce.sharedkernel.Money;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Invoice {
 
@@ -41,6 +41,10 @@ public class Invoice {
         this.gros = Money.ZERO;
     }
 
+    static Invoice createInvoice(Id invoiceId, ClientData client) {
+        return new Invoice(invoiceId, client);
+    }
+
     void addItem(InvoiceLine item) {
         items.add(item);
 
@@ -48,12 +52,7 @@ public class Invoice {
         gros = gros.add(item.getGros());
     }
 
-    static Invoice createInvoice(Id invoiceId, ClientData client){
-        return new Invoice(invoiceId, client);
-    }
-
     /**
-     *
      * @return immutable projection
      */
     public List<InvoiceLine> getItems() {
