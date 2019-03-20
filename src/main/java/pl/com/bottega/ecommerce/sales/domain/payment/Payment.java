@@ -24,7 +24,7 @@ public class Payment {
 
     private Id aggregateId;
 
-    public Payment(Id aggregateId, ClientData clientData, Money amount) {
+    private Payment(Id aggregateId, ClientData clientData, Money amount) {
         this.aggregateId = aggregateId;
         this.clientData = clientData;
         this.amount = amount;
