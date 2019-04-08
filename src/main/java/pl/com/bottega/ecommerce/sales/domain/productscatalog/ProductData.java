@@ -32,7 +32,7 @@ public class ProductData {
     private ProductData() {
     }
 
-    ProductData(Id productId, Money price, String name, ProductType type, Date snapshotDate) {
+    public ProductData(Id productId, Money price, String name, ProductType type, Date snapshotDate) {
         this.productId = productId;
         this.price = price;
         this.name = name;

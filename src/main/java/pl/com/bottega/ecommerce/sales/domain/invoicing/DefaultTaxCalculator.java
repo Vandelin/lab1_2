@@ -15,7 +15,7 @@ public class DefaultTaxCalculator implements TaxCalculator {
                 .getType()) {
             case FOOD:
                 ratio = BigDecimal.valueOf(0.07);
-                desc = "7% (F)";
+            desc = "7% (F)";
                 break;
             case STANDARD:
                 ratio = BigDecimal.valueOf(0.23);
